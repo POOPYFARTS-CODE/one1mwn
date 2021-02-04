@@ -1,3 +1,14 @@
+info = open("info.txt").readlines()
+info = list(map(lambda x:x.strip(),info))
+email = info[0]
+first_n = info[1]
+last_n = info[2]
+addres_line1 = info[3]
+addres_line2 = info[4]
+city = info[6]
+zip = info[5]
+phone_no = info[6]
+paypal_pass = info[7]
 
 from socket import if_indextoname
 from selenium import webdriver
@@ -11,8 +22,8 @@ import time
 
 
 
-def supreme(link ,size,email,first_n,last_n,addres_line1,addres_line2,city,zip,phone,paypal_pass):
-
+def supreme(link ,size):
+  global email,first_n,last_n,addres_line1,addres_line2,city,zip,phone,paypal_pass
     
   driver = webdriver.Chrome("chromedriver.exe" )
   driver.get(link)
@@ -77,30 +88,3 @@ def supreme(link ,size,email,first_n,last_n,addres_line1,addres_line2,city,zip,p
     password = driver.find_element_by_xpath('//*[@id="password"]')
     password.send_keys(paypal_pass)
     time.sleep(10)
-
-
-
-#test
-
-
-    #            *     ,MMM8&&&.            *
-    #                 MMMM88&&&&&    .
-    #                MMMM88&&&&&&&
-    #    *           MMM88&&&&&&&&
-    #                MMM88&&&&&&&&
-    #                'MMM88&&&&&&'
-    #                  'MMM8&&&'      *
-    #         |\___/|
-    #         )     (             .              '
-    #        =\     /=
-    #          )===(       *
-    #         /     \
-    #         |     |
-    #        /       \
-    #        \       /
-    # _/\_/\_/\__  _/_/\_/\_/\_/\_/\_/\_/\_/\_/\_
-    # |  |  |  |( (  |  |  |  |  |  |  |  |  |  |
-    # |  |  |  | ) ) |  |  |  |  |  |  |  |  |  |
-    # |  |  |  |(_(  |  |  |  |  |  |  |  |  |  |
-    # |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-    # |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
